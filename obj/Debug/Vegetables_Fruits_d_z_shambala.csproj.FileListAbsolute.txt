@@ -1,0 +1,15 @@
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala.csproj.AssemblyReference.cache
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\MainWindow.g.cs
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\App.g.cs
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala_MarkupCompile.cache
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala_MarkupCompile.lref
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\bin\Debug\Vegetables_Fruits_d_z_shambala.exe.config
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\bin\Debug\Vegetables_Fruits_d_z_shambala.exe
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\bin\Debug\Vegetables_Fruits_d_z_shambala.pdb
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\MainWindow.baml
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala.g.resources
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala.Properties.Resources.resources
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala.csproj.GenerateResource.cache
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala.csproj.CoreCompileInputs.cache
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala.exe
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala.pdb

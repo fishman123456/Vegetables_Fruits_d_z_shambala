@@ -14,8 +14,16 @@
                 <Button x:Name="fillBtn" Content="Fill" Width="100" Margin="10" Click="fillBtn_Click"/>
                 <Button x:Name="updateBtn" Content="Update" Width="100" Margin="10" Click="updateBtn_Click"/>
             </StackPanel>
-            <!-- вывод результатов -->
-            <DataGrid x:Name="dataGrid"  Height="900"/>
+            <!-- выводим результаты из базы данных фрукты овощи -->
+            <DataGrid ItemsSource="{Binding Source=MyList}"  AutoGenerateColumns="False" Width="800">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id_g}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name_g}" Width="100"/>
+                    <DataGridTextColumn Header="Type" Binding="{Binding Type_g}" Width="100"/>
+                    <DataGridTextColumn Header="Color" Binding="{Binding Color_g}" Width="100"/>
+                    <DataGridTextColumn Header="Calories" Binding="{Binding Calories_g}" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
 </Window>

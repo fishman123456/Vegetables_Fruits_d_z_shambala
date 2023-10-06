@@ -24,5 +24,15 @@ namespace Vegetables_Fruits_d_z_shambala
         {
             InitializeComponent();
         }
+
+        private void fillBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void updateBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
