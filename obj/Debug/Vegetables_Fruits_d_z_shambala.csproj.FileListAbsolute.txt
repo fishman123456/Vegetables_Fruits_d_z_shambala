@@ -13,3 +13,4 @@ C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Deb
 C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala.csproj.CoreCompileInputs.cache
 C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala.exe
 C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala.pdb
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Vegetables_Fruits_d_z_shambala\obj\Debug\Vegetables_Fruits_d_z_shambala_Content.g.cs

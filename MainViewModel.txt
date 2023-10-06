@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Windows;
+using System.Windows.Media;
+using System.Xml.Linq;
+
+namespace Vegetables_Fruits_d_z_shambala
+{
+   public class MainViewModel
+    {
+        public ObservableCollection<VegetablesAndFruits> VegFrut { get; set; } = new ObservableCollection<VegetablesAndFruits>();
+        public VegetablesAndFruits SelectedVegFrut { get; set; }
+
+        public ICommand AddRowCommand { get; set; }
+        public ICommand GetRowInfoCommand { get; set; }
+
+        public MainViewModel()
+        {
+            AddRowCommand = new RelayCommand(AddRow);
+            GetRowInfoCommand = new RelayCommand(GetRowInfo);
+        }
+        private void AddRow() => VegFrut.Add(new VegetablesAndFruits());
+
+        private void GetRowInfo()
+        {
+            if (SelectedVegFrut != null)
+                MessageBox.Show("VegetablesAndFruits");
+        }
+}
+}

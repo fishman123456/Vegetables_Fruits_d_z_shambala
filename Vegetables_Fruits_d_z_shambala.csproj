@@ -64,9 +64,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="DbConnectionProvider.cs" />
-    <Compile Include="DbGameClient.cs" />
+    <Compile Include="DbVegetablesAndFruitsClient.cs" />
+    <Content Include="MainViewModel.txt" />
+    <Content Include="RelayCommand.txt" />
     <Compile Include="VegetablesAndFruits.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Deployment.Internal;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,15 +8,22 @@ using System.Threading.Tasks;
 namespace Vegetables_Fruits_d_z_shambala
 {
     // Класс, описывающий сущность "Фруты-Овощи" - dataclass
-    internal class VegetablesAndFruits
+    public class VegetablesAndFruits
     {
         // поля - столбцы таблицы БД
         public long Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public string Color { get; set; }
-        public decimal Calories { get; set; }
+        public int Calories { get; set; }
 
+        //public VegetablesAndFruits(long id,string name, string type, string color, decimal calories ) {
+        //    Id = id;
+        //    Name = name;
+        //    Type = type;
+        //    Color = color;
+        //    Calories = calories;
+        //}
         // 
         public override string ToString()
         {

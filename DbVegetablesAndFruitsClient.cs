@@ -28,7 +28,7 @@ namespace  Vegetables_Fruits_d_z_shambala
         {
             using (SqlConnection connection = connectionProvider.OpenDbConnection())
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM VegFru_t order by id;", connection);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Veg_Fru_t order by id;", connection);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     // считать строки результат в List<VegetablesAndFruits>
@@ -108,6 +108,7 @@ namespace  Vegetables_Fruits_d_z_shambala
                     connection
                 );
                 // добавляем параметры в запрос
+                cmd.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = VegetablesAndFruits.Id;
                 cmd.Parameters.Add("@Name", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Name;
                 cmd.Parameters.Add("@Type", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Type;
                 cmd.Parameters.Add("@Color", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Color;
@@ -131,7 +132,7 @@ namespace  Vegetables_Fruits_d_z_shambala
             string name = (string)reader["Name_f"];
             string type = (string)reader["Type_f"];
             string color = (string)reader["Color_f"];
-            decimal calories = (decimal)reader["Calories_f"];
+            int calories = (int)reader["Calories_f"];
             return new VegetablesAndFruits() { Id = id, Name = name, Type = type, Color = color, Calories = calories };
         }
 
