@@ -11,11 +11,11 @@ namespace Vegetables_Fruits_d_z_shambala
     public class VegetablesAndFruits
     {
         // поля - столбцы таблицы БД
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string Color { get; set; }
-        public int Calories { get; set; }
+        public long Id { get; set; } 
+        public string Name { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
+        public string Color { get; set; } = string.Empty;
+        public int Calories { get; set; } = 0;
 
         //public VegetablesAndFruits(long id,string name, string type, string color, decimal calories ) {
         //    Id = id;

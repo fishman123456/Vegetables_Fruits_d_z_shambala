@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace  Vegetables_Fruits_d_z_shambala
 {
@@ -36,7 +37,32 @@ namespace  Vegetables_Fruits_d_z_shambala
                 }
             }
         }
-
+        // 1.2 получить  записи названий овощей и фруктов
+        public List<VegetablesAndFruits> SelectName()
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Veg_Fru_t.id, Veg_Fru_t.Name_f FROM Veg_Fru_t order by id;", connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    return ReadSelectResultNameId(reader);
+                }
+            }
+        }
+        // 1.3 получить  записи цветов овощей и фруктов
+        public List<VegetablesAndFruits> SelectColor()
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Veg_Fru_t.id, Veg_Fru_t.Color_f FROM Veg_Fru_t order by id;", connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    return ReadSelectResultColorId(reader);
+                }
+            }
+        }
         // 2. получить запись по id
         public List<VegetablesAndFruits> SelectById(int id) {
             using (SqlConnection connection = connectionProvider.OpenDbConnection())
@@ -143,6 +169,48 @@ namespace  Vegetables_Fruits_d_z_shambala
             while (reader.Read())
             {
                 VegetablesAndFruits VegetablesAndFruits = ConvertReaderRow(reader);
+                VegetablesAndFruitss.Add(VegetablesAndFruits);
+            }
+            return VegetablesAndFruitss;
+        }
+
+        // // 1. конвертация строки результата в объект VegetablesAndFruits номер и имя 
+        private VegetablesAndFruits ConvertReaderRowNameId(SqlDataReader reader)
+        {
+            int id = (int)reader["Id"];
+            string name = (string)reader["Name_f"];
+            
+            return new VegetablesAndFruits() { Id = id, Name = name };
+        }
+
+        // 2. чтение табличного результата в список обектов
+        private List<VegetablesAndFruits> ReadSelectResultNameId(SqlDataReader reader)
+        {
+            List<VegetablesAndFruits> VegetablesAndFruitss = new List<VegetablesAndFruits>();
+            while (reader.Read())
+            {
+                VegetablesAndFruits VegetablesAndFruits = ConvertReaderRowNameId(reader);
+                VegetablesAndFruitss.Add(VegetablesAndFruits);
+            }
+            return VegetablesAndFruitss;
+        }
+
+        // // 1. конвертация строки результата в объект VegetablesAndFruits номер и цвет 
+        private VegetablesAndFruits ConvertReaderRowColorId(SqlDataReader reader)
+        {
+            int id = (int)reader["Id"];
+            string color = (string)reader["Color_f"];
+
+            return new VegetablesAndFruits() { Id = id, Color = color };
+        }
+
+        // 2. чтение табличного результата в список обектов
+        private List<VegetablesAndFruits> ReadSelectResultColorId(SqlDataReader reader)
+        {
+            List<VegetablesAndFruits> VegetablesAndFruitss = new List<VegetablesAndFruits>();
+            while (reader.Read())
+            {
+                VegetablesAndFruits VegetablesAndFruits = ConvertReaderRowColorId(reader);
                 VegetablesAndFruitss.Add(VegetablesAndFruits);
             }
             return VegetablesAndFruitss;

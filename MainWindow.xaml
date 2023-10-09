@@ -14,8 +14,8 @@
                     <MenuItem Name="testDbConnection" Header="Test Database Connection" Click="testDbConnection_Click"/>
                 </MenuItem>
                 <MenuItem Header="Qvery" Click="MenuItemQvery_Click">
-                    <MenuItem Name="Qvery1" Header="Qvery1" Click="Qvery1_Click"/>
-                    <MenuItem Name="Qvery2" Header="Qvery_2" Click="Qvery2_Click"/>
+                    <MenuItem Name="Qvery1" Header="Вывести названия овощей и фруктов" Click="Qvery1_Click"/>
+                    <MenuItem Name="Qvery2" Header="Вывести цвета овощей и фруктов" Click="Qvery2_Click"/>
                 </MenuItem>
 
             </Menu>

@@ -168,9 +168,25 @@ namespace Vegetables_Fruits_d_z_shambala
             UpdateVGList();
         }
 
-
-        private void Qvery1_Click(object sender, RoutedEventArgs e) { }
-        private void Qvery2_Click(object sender, RoutedEventArgs e) { }
+        // 1.2 получить  записи названий овощей и фруктов
+        private void Qvery1_Click(object sender, RoutedEventArgs e) 
+        {
+            // обновление списка объектов (можно придумать рациональный способ)
+            List<VegetablesAndFruits> vegasfruit = dbClient.SelectName();
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectName();
+           // UpdateVGList();
+        }
+        // 1.3 получить  цвет овощей и фруктов
+        private void Qvery2_Click(object sender, RoutedEventArgs e) 
+        {
+            // обновление списка объектов (можно придумать рациональный способ)
+            List<VegetablesAndFruits> vegasfruit = dbClient.SelectColor();
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectColor();
+        }
 
         private void MenuItemQvery_Click(object sender, RoutedEventArgs e)
         {
