@@ -84,7 +84,7 @@ namespace  Vegetables_Fruits_d_z_shambala
             {
                 // формируем команду delete 
                 SqlCommand cmd = new SqlCommand(
-                    "delete VegetablesAndFruits_t where id = " + id + ";" , connection);
+                    "delete Veg_Fru_t where id = " + id + ";" , connection);
                 // выполняем запрос
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected != 1)
@@ -102,8 +102,8 @@ namespace  Vegetables_Fruits_d_z_shambala
             {
                 // формируем команду INSERT с использованием параметров запроса
                 SqlCommand cmd = new SqlCommand(
-                    "update VegetablesAndFruits_t  set Name_f = @Name, Type_f = @Type," +
-                    " Color_f = @Color, Calories_f = @Calories " +
+                    "update Veg_Fru_t  set Name_f = @Name, Type_f = @Type," +
+                    " Color_f = @Color, Сalories_f = @Calories " +
                     "where Id =  @id;",
                     connection
                 );
@@ -112,7 +112,7 @@ namespace  Vegetables_Fruits_d_z_shambala
                 cmd.Parameters.Add("@Name", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Name;
                 cmd.Parameters.Add("@Type", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Type;
                 cmd.Parameters.Add("@Color", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Color;
-                cmd.Parameters.Add("@Calories", System.Data.SqlDbType.Decimal).Value = VegetablesAndFruits.Calories;
+                cmd.Parameters.Add("@Calories", System.Data.SqlDbType.Int).Value = VegetablesAndFruits.Calories;
                 // выполняем запрос
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected != 1)

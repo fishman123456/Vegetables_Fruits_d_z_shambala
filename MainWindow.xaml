@@ -23,7 +23,7 @@
             <!-- действия, выполняемые в прогармме-->
             <StackPanel Orientation="Horizontal">
                 <Label Content="Actions: "  Margin="10"/>
-                <Button x:Name="updateBtn" Content="Update" Width="100" Margin="10" Click="updateBtn_Click"/>
+                <Button x:Name="RefreshBtn" Content="Refresh" Width="100" Margin="10" Click="RefreshBtn_Click"/>
                 <TextBox x:Name="name_f" Margin="10" Width="100"></TextBox>
                 <TextBox x:Name="type_f" Margin="10" Width="100"></TextBox>
                 <TextBox x:Name="color_f" Margin="10" Width="100"></TextBox>
@@ -35,8 +35,8 @@
                 <!-- Список объектов -->
                 <ListBox x:Name="VegFruListBox" SelectionChanged="usersList_SelectionChanged"
               Height="250" 
-              ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible">
-
+              ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible"
+                 >
                 </ListBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" >

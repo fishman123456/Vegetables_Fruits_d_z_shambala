@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace Vegetables_Fruits_d_z_shambala
 {
@@ -30,12 +32,12 @@ namespace Vegetables_Fruits_d_z_shambala
         {
             InitializeComponent();
             dbClient = new DbVegetablesAndFruitsClient(new DbConnectionProvider());
-            updateVegetablesAndFruitsList();
+            UpdateVGList();
             //   DataContext = MainViewModel;
         }
 
         // обновляем список фрукты овощи
-        private void updateVegetablesAndFruitsList()
+        private void UpdateVGList()
         {
             try
             {
@@ -50,14 +52,65 @@ namespace Vegetables_Fruits_d_z_shambala
             }
         }
 
+        // меню удалить, изменить выбранный элемент
         private void usersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        { }
+        {
+            List<VegetablesAndFruits> vegetablesAndFruits1 = dbClient.SelectAll();
+
+
+            if (VegFruListBox.SelectedItem is VegetablesAndFruits)
+            {
+
+                string selectrow = VegFruListBox.SelectedItem.ToString().Split().First();
+                int id_VegFru_t = Convert.ToInt32(selectrow);
+                MessageBoxResult resdelete = MessageBox.Show($"Удалить выбранный элемент?", "Error", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
+
+                if (resdelete == MessageBoxResult.Yes)
+                {
+                    //do something
+                    dbClient.Delete(id_VegFru_t);
+                    
+                }
+                else if (resdelete == MessageBoxResult.No)
+                {
+                    //do something else
+                    MessageBoxResult resupgrade = MessageBox.Show("Изменяем строку?", " ", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+                    if (resupgrade == MessageBoxResult.Yes)
+                    {
+                        // считываем выбранную запись как строку 
+                        List<string> strings = new List<string>();
+                        string selectrowid = VegFruListBox.SelectedItem.ToString();
+                        char[] splitchar = { '-' };
+                        foreach (string sel in selectrowid.Split(splitchar))
+                        {
+                            strings.Add(sel);
+                        }
+                        //  добавляем её в обьект c индексом
+                        int id = Convert.ToInt32(strings[0]);
+                        string name = strings[1];
+                        string type = strings[2];
+                        string color = strings[3];
+                        int calories = Convert.ToInt32(strings[4]);
+                        VegetablesAndFruits newVG = new VegetablesAndFruits() { Id = id, Name = name, Type = type, Color = color, Calories = calories };
+                        // вписываем обьект по полям в textbox для изменения
+                        Upid_f.Text = id.ToString();
+                        Upname_f.Text = name;
+                        Uptype_f.Text = type.ToString();
+                        Upcolor_f.Text = color;
+                        Upcalories_f.Text = calories.ToString();
+
+                    }
+                    else if (resupgrade == MessageBoxResult.No)
+                    {
+                        //do something else
+                    }
+                }
+            }
+        }
 
         
-        private void updateBtn_Click(object sender, RoutedEventArgs e)
-        {
-            updateVegetablesAndFruitsList();
-        }
+        
 
         private void QveryBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -81,9 +134,9 @@ namespace Vegetables_Fruits_d_z_shambala
             }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            UpdateVGList();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -93,19 +146,28 @@ namespace Vegetables_Fruits_d_z_shambala
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
+            int id = Convert.ToInt32(Upid_f.Text);
+            string name = Upname_f.Text.ToString();
+            string type = Uptype_f.Text.ToString();
+            string color = Upcolor_f.Text.ToString();
+            int calories = Convert.ToInt32(Upcalories_f.Text);
+            VegetablesAndFruits newVegetablesAndFruits = new VegetablesAndFruits() {Id = id, Name = name, Type = type, Color = color, Calories = calories };
+
+            dbClient.Update(newVegetablesAndFruits);
+
+            UpdateVGList();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
 
         }
+
         private void MenuItemQvery_Click(object sender, RoutedEventArgs e)
         {
 
         }
-        private void Qvery1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Qvery2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        private void Qvery1_Click(object sender, RoutedEventArgs e) { }
+        private void Qvery2_Click(object sender, RoutedEventArgs e) { }
     }
 }
