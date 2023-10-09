@@ -13,12 +13,22 @@
                 <MenuItem Header="Actions" Click="MenuItem_Click">
                     <MenuItem Name="testDbConnection" Header="Test Database Connection" Click="testDbConnection_Click"/>
                 </MenuItem>
+                <MenuItem Header="Qvery" Click="MenuItemQvery_Click">
+                    <MenuItem Name="Qvery1" Header="Qvery1" Click="Qvery1_Click"/>
+                    <MenuItem Name="Qvery2" Header="Qvery_2" Click="Qvery2_Click"/>
+                </MenuItem>
+
             </Menu>
+
             <!-- действия, выполняемые в прогармме-->
             <StackPanel Orientation="Horizontal">
                 <Label Content="Actions: "  Margin="10"/>
-                <Button x:Name="fillBtn" Content="Qvery" Width="100" Margin="10" Click="QveryBtn_Click"/>
                 <Button x:Name="updateBtn" Content="Update" Width="100" Margin="10" Click="updateBtn_Click"/>
+                <TextBox x:Name="name_f" Margin="10" Width="100"></TextBox>
+                <TextBox x:Name="type_f" Margin="10" Width="100"></TextBox>
+                <TextBox x:Name="color_f" Margin="10" Width="100"></TextBox>
+                <TextBox x:Name="calories_f" Margin="10" Width="100"></TextBox>
+                <Button Name="Add" Width="100" Margin="10" HorizontalAlignment="Right" Content="Add" Click="Add_Click"></Button>
             </StackPanel>
             <!-- выводим результаты из базы данных фрукты овощи -->
             <StackPanel>
@@ -29,6 +39,46 @@
 
                 </ListBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="ID" Grid.Column="1"/>
+                    <Label Content="Name" Grid.Column="3"/>
+                    <Label Content="Type" Grid.Column="5"/>
+                    <Label Content="Color" Grid.Column="7"/>
+                    <Label Content="Calories" Grid.Column="9"  Width="70"/>
+                </Grid>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBox x:Name="Upid_f" Margin="10" Width="100" IsReadOnly="True"></TextBox>
+                <TextBox x:Name="Upname_f" Margin="10" Width="100" ></TextBox>
+                <TextBox x:Name="Uptype_f" Margin="10" Width="100" ></TextBox>
+                <TextBox x:Name="Upcolor_f" Margin="10" Width="100" ></TextBox>
+                <TextBox x:Name="Upcalories_f" Margin="10" Width="100" ></TextBox>
+                <Button Name="Update" Width="100" Margin="10" HorizontalAlignment="Right" Content="Update" Click="Update_Click" ></Button>
+            </StackPanel>
         </StackPanel>
+
+
+
+
     </Grid>
 </Window>

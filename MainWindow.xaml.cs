@@ -42,7 +42,7 @@ namespace Vegetables_Fruits_d_z_shambala
                 // обновление списка объектов (можно придумать рациональный способ)
                 List<VegetablesAndFruits> vegasfruit = dbClient.SelectAll();
                 VegFruListBox.Items.Clear();
-                vegasfruit.ForEach(v => {VegFruListBox.Items.Add(v);});
+                vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
             }
             catch (Exception ex)
             {
@@ -52,9 +52,11 @@ namespace Vegetables_Fruits_d_z_shambala
 
         private void usersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         { }
-            private void updateBtn_Click(object sender, RoutedEventArgs e)
-        {
 
+        
+        private void updateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            updateVegetablesAndFruitsList();
         }
 
         private void QveryBtn_Click(object sender, RoutedEventArgs e)
@@ -80,6 +82,28 @@ namespace Vegetables_Fruits_d_z_shambala
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void MenuItemQvery_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Qvery1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Qvery2_Click(object sender, RoutedEventArgs e)
         {
 
         }

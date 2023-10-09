@@ -132,7 +132,7 @@ namespace  Vegetables_Fruits_d_z_shambala
             string name = (string)reader["Name_f"];
             string type = (string)reader["Type_f"];
             string color = (string)reader["Color_f"];
-            int calories = (int)reader["Calories_f"];
+            int calories = (int)reader["Сalories_f"];
             return new VegetablesAndFruits() { Id = id, Name = name, Type = type, Color = color, Calories = calories };
         }
 
