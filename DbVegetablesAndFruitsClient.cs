@@ -66,7 +66,7 @@ namespace  Vegetables_Fruits_d_z_shambala
                 cmd.Parameters.Add("@Name", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Name;
                 cmd.Parameters.Add("@Type", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Name;
                 cmd.Parameters.Add("@Color", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Name;
-                cmd.Parameters.Add("@Calories", System.Data.SqlDbType.Decimal).Value = VegetablesAndFruits.Calories;
+                cmd.Parameters.Add("@Calories", System.Data.SqlDbType.Int).Value = VegetablesAndFruits.Calories;
                 // выполняем запрос
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected != 1)

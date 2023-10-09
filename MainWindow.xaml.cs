@@ -69,7 +69,8 @@ namespace Vegetables_Fruits_d_z_shambala
                 {
                     //do something
                     dbClient.Delete(id_VegFru_t);
-                    
+                    UpdateVGList();
+
                 }
                 else if (resdelete == MessageBoxResult.No)
                 {
@@ -111,12 +112,12 @@ namespace Vegetables_Fruits_d_z_shambala
 
         
         
-
+        // 
         private void QveryBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
+        // проверка соединения
         private void testDbConnection_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -133,17 +134,26 @@ namespace Vegetables_Fruits_d_z_shambala
                 MessageBox.Show($"Connection error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        // обновление таблицфы из базы данных
         private void RefreshBtn_Click(object sender, RoutedEventArgs e)
         {
             UpdateVGList();
         }
-
+        // добавление записи базу данных
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            //int id = Convert.ToInt32(Upid_f.Text);
+            string name = name_f.Text.ToString();
+            string type = type_f.Text.ToString();
+            string color = color_f.Text.ToString();
+            int calories = Convert.ToInt32(calories_f.Text);
+            VegetablesAndFruits newVegetablesAndFruits = new VegetablesAndFruits() { Name = name, Type = type, Color = color, Calories = calories };
 
+            dbClient.Insert(newVegetablesAndFruits);
+
+            UpdateVGList();
         }
-
+        // изменение записи
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             int id = Convert.ToInt32(Upid_f.Text);
@@ -158,16 +168,18 @@ namespace Vegetables_Fruits_d_z_shambala
             UpdateVGList();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
+        private void Qvery1_Click(object sender, RoutedEventArgs e) { }
+        private void Qvery2_Click(object sender, RoutedEventArgs e) { }
 
         private void MenuItemQvery_Click(object sender, RoutedEventArgs e)
         {
 
         }
-        private void Qvery1_Click(object sender, RoutedEventArgs e) { }
-        private void Qvery2_Click(object sender, RoutedEventArgs e) { }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
