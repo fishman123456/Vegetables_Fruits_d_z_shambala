@@ -90,8 +90,8 @@ namespace  Vegetables_Fruits_d_z_shambala
                 );
                 // добавляем параметры в запрос
                 cmd.Parameters.Add("@Name", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Name;
-                cmd.Parameters.Add("@Type", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Name;
-                cmd.Parameters.Add("@Color", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Name;
+                cmd.Parameters.Add("@Type", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Type;
+                cmd.Parameters.Add("@Color", System.Data.SqlDbType.NVarChar).Value = VegetablesAndFruits.Color;
                 cmd.Parameters.Add("@Calories", System.Data.SqlDbType.Int).Value = VegetablesAndFruits.Calories;
                 // выполняем запрос
                 int rowsAffected = cmd.ExecuteNonQuery();

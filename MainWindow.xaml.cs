@@ -56,8 +56,7 @@ namespace Vegetables_Fruits_d_z_shambala
         private void usersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             List<VegetablesAndFruits> vegetablesAndFruits1 = dbClient.SelectAll();
-
-
+            
             if (VegFruListBox.SelectedItem is VegetablesAndFruits)
             {
 
@@ -82,7 +81,7 @@ namespace Vegetables_Fruits_d_z_shambala
                         // считываем выбранную запись как строку 
                         List<string> strings = new List<string>();
                         string selectrowid = VegFruListBox.SelectedItem.ToString();
-                        char[] splitchar = { '-' };
+                        char[] splitchar = {' '};
                         foreach (string sel in selectrowid.Split(splitchar))
                         {
                             strings.Add(sel);
@@ -156,6 +155,7 @@ namespace Vegetables_Fruits_d_z_shambala
         // изменение записи
         private void Update_Click(object sender, RoutedEventArgs e)
         {
+           
             int id = Convert.ToInt32(Upid_f.Text);
             string name = Upname_f.Text.ToString();
             string type = Uptype_f.Text.ToString();
@@ -187,7 +187,22 @@ namespace Vegetables_Fruits_d_z_shambala
             vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
             dbClient.SelectColor();
         }
+        // 1.4 Вывести максимальную калорийность овощей и фруктов
+        private void Qvery3_Click(object sender, RoutedEventArgs e)
+        { 
+        }
+        // 1.5 Вывести минимальную калорийность овощей и фруктов
+        private void Qvery4_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        // 1.6 Вывести среднюю калорийность овощей и фруктов
+        private void Qvery5_Click(object sender, RoutedEventArgs e)
+        {
+        }
 
+        private void Qvery6_Click(object sender, RoutedEventArgs e)
+        {
+        }
         private void MenuItemQvery_Click(object sender, RoutedEventArgs e)
         {
 

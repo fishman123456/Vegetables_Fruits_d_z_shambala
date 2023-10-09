@@ -15,7 +15,7 @@ namespace Vegetables_Fruits_d_z_shambala
         public string Name { get; set; } = string.Empty;
         public string Type { get; set; } = string.Empty;
         public string Color { get; set; } = string.Empty;
-        public int Calories { get; set; } = 0;
+        public int Calories { get; set; } 
 
         //public VegetablesAndFruits(long id,string name, string type, string color, decimal calories ) {
         //    Id = id;
@@ -27,7 +27,7 @@ namespace Vegetables_Fruits_d_z_shambala
         // 
         public override string ToString()
         {
-            return $"{Id} - {Name} - {Type} - {Color} - {Calories}";
+            return $"{Id} {Name} {Type} {Color} {Calories}";
         }
     }
 }
