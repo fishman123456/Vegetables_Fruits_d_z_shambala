@@ -1,9 +1,20 @@
+USE [Vegetables_Fruits]
+GO
 
-create table Veg_Fru_t(
+/****** Object:  Table [dbo].[Veg_Fru_t]    Script Date: 10.10.2023 0:05:31 ******/
+SET ANSI_NULLS ON
+GO
 
- Id INT identity(1,1) not null,
-   Name_v_f nvarchar(30) not null,
-   Type_v_f nvarchar(30) not null,
-   Color_v_f nvarchar(20) not null,
-    Ñalories_f decimal not null
-    )
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Veg_Fru_t](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name_f] [nvarchar](30) NOT NULL,
+	[Type_f] [nvarchar](30) NOT NULL,
+	[Color_f] [nvarchar](20) NOT NULL,
+	[Ñalories_f] [int] NOT NULL
+) ON [PRIMARY]
+GO
+
+
