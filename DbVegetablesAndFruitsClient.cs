@@ -182,7 +182,7 @@ namespace  Vegetables_Fruits_d_z_shambala
             
             return new VegetablesAndFruits() { Id = id, Name = name };
         }
-
+         //
         // 2. чтение табличного результата в список обектов
         private List<VegetablesAndFruits> ReadSelectResultNameId(SqlDataReader reader)
         {
