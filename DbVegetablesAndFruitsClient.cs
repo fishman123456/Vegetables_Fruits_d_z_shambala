@@ -96,7 +96,7 @@ namespace Vegetables_Fruits_d_z_shambala
                 }
             }
         }
-        // 1.5 показать среднюю калорийность овощей и фруктов
+        // 1.6 показать среднюю калорийность овощей и фруктов
         public List<string> SelectAVGCalories()
         {
             using (SqlConnection connection = connectionProvider.OpenDbConnection())

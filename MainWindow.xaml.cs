@@ -56,7 +56,7 @@ namespace Vegetables_Fruits_d_z_shambala
         private void usersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             List<VegetablesAndFruits> vegetablesAndFruits1 = dbClient.SelectAll();
-            
+
             if (VegFruListBox.SelectedItem is VegetablesAndFruits)
             {
 
@@ -81,7 +81,7 @@ namespace Vegetables_Fruits_d_z_shambala
                         // считываем выбранную запись как строку 
                         List<string> strings = new List<string>();
                         string selectrowid = VegFruListBox.SelectedItem.ToString();
-                        char[] splitchar = {' '};
+                        char[] splitchar = { ' ' };
                         foreach (string sel in selectrowid.Split(splitchar))
                         {
                             strings.Add(sel);
@@ -109,8 +109,8 @@ namespace Vegetables_Fruits_d_z_shambala
             }
         }
 
-        
-        
+
+
         // 
         private void QveryBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -155,13 +155,13 @@ namespace Vegetables_Fruits_d_z_shambala
         // изменение записи
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-           
+
             int id = Convert.ToInt32(Upid_f.Text);
             string name = Upname_f.Text.ToString();
             string type = Uptype_f.Text.ToString();
             string color = Upcolor_f.Text.ToString();
             int calories = Convert.ToInt32(Upcalories_f.Text);
-            VegetablesAndFruits newVegetablesAndFruits = new VegetablesAndFruits() {Id = id, Name = name, Type = type, Color = color, Calories = calories };
+            VegetablesAndFruits newVegetablesAndFruits = new VegetablesAndFruits() { Id = id, Name = name, Type = type, Color = color, Calories = calories };
 
             dbClient.Update(newVegetablesAndFruits);
 
@@ -169,17 +169,17 @@ namespace Vegetables_Fruits_d_z_shambala
         }
 
         // 1.2 получить  записи названий овощей и фруктов
-        private void Qvery1_Click(object sender, RoutedEventArgs e) 
+        private void Qvery1_Click(object sender, RoutedEventArgs e)
         {
             // обновление списка объектов (можно придумать рациональный способ)
             List<VegetablesAndFruits> vegasfruit = dbClient.SelectName();
             VegFruListBox.Items.Clear();
             vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
             dbClient.SelectName();
-           // UpdateVGList();
+            // UpdateVGList();
         }
         // 1.3 получить  цвет овощей и фруктов
-        private void Qvery2_Click(object sender, RoutedEventArgs e) 
+        private void Qvery2_Click(object sender, RoutedEventArgs e)
         {
             // обновление списка объектов (можно придумать рациональный способ)
             List<VegetablesAndFruits> vegasfruit = dbClient.SelectColor();
@@ -220,6 +220,30 @@ namespace Vegetables_Fruits_d_z_shambala
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void Qvery6_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void Qvery7_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void Qvery8_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void Qvery9_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void Qvery10_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void Qvery11_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void Qvery12_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void Qvery13_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

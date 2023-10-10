@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vegetables_Fruits_d_z_shambala"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="850">
     <Grid>
         <StackPanel Orientation="Vertical">
             <!-- меню навигации -->
-            <Menu FontSize="25">
+            <Menu FontSize="20">
                 <MenuItem Header="Actions" Click="MenuItem_Click">
                     <MenuItem Name="testDbConnection" Header="Test Database Connection" Click="testDbConnection_Click"/>
                 </MenuItem>
@@ -21,7 +21,16 @@
                     <MenuItem Name="Qvery5" Header="Вывести среднюю калорийность овощей и фруктов" Click="Qvery5_Click"/>
                    
                 </MenuItem>
-
+                <MenuItem Header="Qvery2" Click="MenuItemQvery_Click">
+                    <MenuItem Name="Qvery6" Header="Показать кол-во овощей" Click="Qvery6_Click"/>
+                    <MenuItem Name="Qvery7" Header="Показать кол-во фруктов" Click="Qvery7_Click"/>
+                    <MenuItem Name="Qvery8" Header="Показать кол-во овощей и фруктов заданного цвета" Click="Qvery8_Click"/>
+                    <MenuItem Name="Qvery9" Header="Показать кол-во овощей и фруктов каждого цвета" Click="Qvery9_Click"/>
+                    <MenuItem Name="Qvery10" Header="Показать овощи и фрукты с калорийностью ниже указанной" Click="Qvery10_Click"/>
+                    <MenuItem Name="Qvery11" Header="Показать овощи и фрукты с калорийностью выше указанной" Click="Qvery11_Click"/>
+                    <MenuItem Name="Qvery12" Header="Показать овощи и фрукты с калорийностью в указанном диапазоне" Click="Qvery12_Click"/>
+                    <MenuItem Name="Qvery13" Header="Показать овощи и фрукты у которых цвет желтый или красный" Click="Qvery13_Click"/>
+                </MenuItem>
             </Menu>
 
             <!-- действия, выполняемые в прогармме-->
