@@ -231,7 +231,8 @@ namespace Vegetables_Fruits_d_z_shambala
         // 2.3 Показать количество овощей и фруктов заданного цвета;
         private void Qvery8_Click(object sender, RoutedEventArgs e)
         {
-            string strings = "красн%";   //------- заплатка пока 10-10-2023_14-26
+            //string strings = "красн%";   //------- заплатка пока 10-10-2023_14-26
+            string strings = InputColor.Text.ToString();
             List<string> vegasfruit = dbClient.SelectCountColor(strings);
             VegFruListBox.Items.Clear();
             vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
@@ -249,14 +250,35 @@ namespace Vegetables_Fruits_d_z_shambala
             dbClient.SelectCountAllColor();
 
         }
+
+        // 2.5 Показать овощи и фрукты с калорийностью менее указанной;
         private void Qvery10_Click(object sender, RoutedEventArgs e)
         {
+            int chislo = Convert.ToInt32( InputMinCal.Text);
+            List<VegetablesAndFruits> vegasfruit = dbClient.SelectClloriesMinTextbox(chislo);
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectMinCalories();
         }
+
+        // 2.6 Показать овощи и фрукты с калорийностью больше указанной;
         private void Qvery11_Click(object sender, RoutedEventArgs e)
         {
+                int chislo = Convert.ToInt32(InputMaxCal.Text);
+                List<VegetablesAndFruits> vegasfruit = dbClient.SelectClloriesMaxTextbox(chislo);
+                VegFruListBox.Items.Clear();
+                vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+                dbClient.SelectMinCalories();
         }
+        // 2.6 Показать овощи и фрукты с калорийностью в указанном диапазоне;
         private void Qvery12_Click(object sender, RoutedEventArgs e)
         {
+            int onenumber = Convert.ToInt32(InputMinCal.Text);
+            int twonumber = Convert.ToInt32(InputMaxCal.Text);
+            List<VegetablesAndFruits> vegasfruit = dbClient.SelectClloriesMinMaxTextbox(onenumber,twonumber);
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectMinCalories();
         }
         private void Qvery13_Click(object sender, RoutedEventArgs e)
         {

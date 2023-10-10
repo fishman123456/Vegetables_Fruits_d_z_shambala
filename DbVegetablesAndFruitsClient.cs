@@ -167,7 +167,7 @@ namespace Vegetables_Fruits_d_z_shambala
             {
                 SqlCommand cmd = new SqlCommand("select  count(*), Color_f " +
                     " from Veg_Fru_t " +
-                    " where color_f like '" + colorVegFru + "' " +
+                    " where color_f like '" + colorVegFru + "%' " +
                     " Group by Color_f "
                    , connection);
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -206,9 +206,52 @@ namespace Vegetables_Fruits_d_z_shambala
                 }
             }
         }
-        // 2.5 Показать овощи и фрукты с калорийностью ниже указанной;;
-        // 2.6 Показать овощи и фрукты с калорийностью выше указанной;
+        // 2.5 Показать овощи и фрукты с калорийностью менее указанной;
+
+        public List<VegetablesAndFruits> SelectClloriesMinTextbox(int chislo)
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("select * from Veg_Fru_t v  " +
+                    " where v.Сalories_f < " + chislo , connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    return ReadSelectResult(reader);
+                }
+            }
+        }
+        // 2.6 Показать овощи и фрукты с калорийностью больше указанной;
+        public List<VegetablesAndFruits> SelectClloriesMaxTextbox(int chislo)
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("select * from Veg_Fru_t v  " +
+                    " where v.Сalories_f > " + chislo, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    return ReadSelectResult(reader);
+                }
+            }
+        }
+
+
         // 2.7 Показать овощи и фрукты с калорийностью в указанном диапазоне;
+        public List<VegetablesAndFruits> SelectClloriesMinMaxTextbox(int onenumber, int twonumber)
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("select * from Veg_Fru_t v  " +
+                    " where v.Сalories_f BETWEEN " + onenumber + " AND " + twonumber , connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    return ReadSelectResult(reader);
+                }
+            }
+        }
+
         // 2.8 Показать овощи и фрукты у которых цвет желтый или красный;
         public List<string> SelectCountRedYel()
         {
