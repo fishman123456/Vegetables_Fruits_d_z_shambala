@@ -24,3 +24,14 @@ UPDATE [dbo].[Veg_Fru_t]
       ,[Сalories_f] = <Сalories_f, int,>
  WHERE <Search Conditions,,>
 GO
+
+-- запрос на максимальное значение по полю калории
+
+select  Name_f, Type_f,Color_f,Сalories_f
+from Veg_Fru_t 
+order by Сalories_f desc
+ OFFSET 0 ROWS
+ FETCH NEXT 1 ROWS ONLY;
+
+
+

@@ -19,7 +19,7 @@
                     <MenuItem Name="Qvery3" Header="Вывести максимальную калорийность овощей и фруктов" Click="Qvery3_Click"/>
                     <MenuItem Name="Qvery4" Header="Вывести минимальную калорийность овощей и фруктов" Click="Qvery4_Click"/>
                     <MenuItem Name="Qvery5" Header="Вывести среднюю калорийность овощей и фруктов" Click="Qvery5_Click"/>
-                    <MenuItem Name="Qvery6" Header="Вывести цвета овощей и фруктов" Click="Qvery6_Click"/>
+                   
                 </MenuItem>
 
             </Menu>

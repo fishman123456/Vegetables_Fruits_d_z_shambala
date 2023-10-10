@@ -189,20 +189,29 @@ namespace Vegetables_Fruits_d_z_shambala
         }
         // 1.4 Вывести максимальную калорийность овощей и фруктов
         private void Qvery3_Click(object sender, RoutedEventArgs e)
-        { 
+        {
+            List<VegetablesAndFruits> vegasfruit = dbClient.SelectMaxCalories();
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectMaxCalories();
         }
         // 1.5 Вывести минимальную калорийность овощей и фруктов
         private void Qvery4_Click(object sender, RoutedEventArgs e)
         {
+            List<VegetablesAndFruits> vegasfruit = dbClient.SelectMinCalories();
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectMinCalories();
         }
-        // 1.6 Вывести среднюю калорийность овощей и фруктов
+        // 1.6 Вывести среднюю калорийность овощей и фруктов победа+++++ 10-10-2023
         private void Qvery5_Click(object sender, RoutedEventArgs e)
         {
+            List<string> vegasfruit = dbClient.SelectAVGCalories();
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectAVGCalories();
         }
 
-        private void Qvery6_Click(object sender, RoutedEventArgs e)
-        {
-        }
         private void MenuItemQvery_Click(object sender, RoutedEventArgs e)
         {
 

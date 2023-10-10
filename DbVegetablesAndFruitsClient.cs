@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace  Vegetables_Fruits_d_z_shambala
+namespace Vegetables_Fruits_d_z_shambala
 {
     // класс, обеспечивающий выполнение операций с БД
     internal class DbVegetablesAndFruitsClient
@@ -63,8 +63,62 @@ namespace  Vegetables_Fruits_d_z_shambala
                 }
             }
         }
+        // 1.4 показать максимальную калорийность овощей и фруктов
+        public List<VegetablesAndFruits> SelectMaxCalories()
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * " +
+                    " FROM Veg_Fru_t " +
+                    "order by Сalories_f desc OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;"
+                   , connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    return ReadSelectResult(reader);
+                }
+            }
+        }
+
+        // 1.5 показать минимальную калорийность овощей и фруктов
+        public List<VegetablesAndFruits> SelectMinCalories()
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * " +
+                    " FROM Veg_Fru_t " +
+                    "order by Сalories_f  OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;"
+                   , connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    return ReadSelectResult(reader);
+                }
+            }
+        }
+        // 1.5 показать среднюю калорийность овощей и фруктов
+        public List<string> SelectAVGCalories()
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT avg (Сalories_f)" +
+                    " FROM Veg_Fru_t "
+                   , connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    List<string> result = new List<string>();
+                    while (reader.Read())
+                    {
+                        result.Add(reader.GetInt32(0).ToString());
+                    }
+                    return result;
+                }
+            }
+        }
         // 2. получить запись по id
-        public List<VegetablesAndFruits> SelectById(int id) {
+        public List<VegetablesAndFruits> SelectById(int id)
+        {
             using (SqlConnection connection = connectionProvider.OpenDbConnection())
             {
                 SqlCommand cmd = new SqlCommand("SELECT * FROM VegFru_t order by id;", connection);
@@ -79,13 +133,14 @@ namespace  Vegetables_Fruits_d_z_shambala
         // 3. добавить запись
         // Id_f - Name_f - Type_f - Color_f - Сalories_f 
 
-        public void Insert(VegetablesAndFruits VegetablesAndFruits) { 
+        public void Insert(VegetablesAndFruits VegetablesAndFruits)
+        {
             using (SqlConnection connection = connectionProvider.OpenDbConnection())
             {
                 // формируем команду INSERT с использованием параметров запроса
                 SqlCommand cmd = new SqlCommand(
                     "INSERT INTO Veg_Fru_t (name_f, Type_f, Color_f, Сalories_f)" +
-                    " VALUES (@Name, @Type, @Color, @Calories);", 
+                    " VALUES (@Name, @Type, @Color, @Calories);",
                     connection
                 );
                 // добавляем параметры в запрос
@@ -110,7 +165,7 @@ namespace  Vegetables_Fruits_d_z_shambala
             {
                 // формируем команду delete 
                 SqlCommand cmd = new SqlCommand(
-                    "delete Veg_Fru_t where id = " + id + ";" , connection);
+                    "delete Veg_Fru_t where id = " + id + ";", connection);
                 // выполняем запрос
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected != 1)
@@ -179,10 +234,10 @@ namespace  Vegetables_Fruits_d_z_shambala
         {
             int id = (int)reader["Id"];
             string name = (string)reader["Name_f"];
-            
+
             return new VegetablesAndFruits() { Id = id, Name = name };
         }
-         //
+        //
         // 2. чтение табличного результата в список обектов
         private List<VegetablesAndFruits> ReadSelectResultNameId(SqlDataReader reader)
         {
@@ -215,5 +270,9 @@ namespace  Vegetables_Fruits_d_z_shambala
             }
             return VegetablesAndFruitss;
         }
+
+        // // 1. конвертация строки результата в строку среднее значение 
+
+
     }
 }
