@@ -116,7 +116,123 @@ namespace Vegetables_Fruits_d_z_shambala
                 }
             }
         }
-        // 2. получить запись по id
+
+        // 2.1 показать Показать кол-во овощей
+        public List<string> SelectCountVeg()
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("select  count(*) " +
+                    " from Veg_Fru_t " +
+                    " where Type_f like 'овощь'"
+                   , connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    List<string> result = new List<string>();
+                    while (reader.Read())
+                    {
+                        result.Add(reader.GetInt32(0).ToString());
+                    }
+                    return result;
+                }
+            }
+        }
+
+        // 2.2 показать Показать кол-во фруктов
+        public List<string> SelectCountFru()
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("select  count(*) " +
+                    " from Veg_Fru_t " +
+                    " where Type_f like 'фрукт'"
+                   , connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    List<string> result = new List<string>();
+                    while (reader.Read())
+                    {
+                        result.Add(reader.GetInt32(0).ToString());
+                    }
+                    return result;
+                }
+            }
+        }
+        // 2.3 Показать количество овощей и фруктов заданного цвета;
+        public List<string> SelectCountColor(string colorVegFru)
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("select  count(*), Color_f " +
+                    " from Veg_Fru_t " +
+                    " where color_f like '" + colorVegFru + "' " +
+                    " Group by Color_f "
+                   , connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    List<string> result = new List<string>();
+                    while (reader.Read())
+                    {
+                        result.Add(reader.GetInt32(0).ToString());
+                        result.Add(reader.GetValue(1).ToString());
+                    }
+                    return result;
+                }
+            }
+        }
+
+        // 2.4 Показать количество овощей и фруктов каждого цвета;
+        public List<string> SelectCountAllColor()
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("select  count(*), Color_f " +
+                    " from Veg_Fru_t " +
+                    " Group by Color_f "
+                   , connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    List<string> result = new List<string>();
+                    while (reader.Read())
+                    {
+                        result.Add(reader.GetInt32(0).ToString());
+                        result.Add(reader.GetValue(1).ToString());
+                    }
+                    return result;
+                }
+            }
+        }
+        // 2.5 Показать овощи и фрукты с калорийностью ниже указанной;;
+        // 2.6 Показать овощи и фрукты с калорийностью выше указанной;
+        // 2.7 Показать овощи и фрукты с калорийностью в указанном диапазоне;
+        // 2.8 Показать овощи и фрукты у которых цвет желтый или красный;
+        public List<string> SelectCountRedYel()
+        {
+            using (SqlConnection connection = connectionProvider.OpenDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand("select  count(*), Color_f " +
+                    " from Veg_Fru_t " +
+                    " where color_f like 'желт%' or color_f like 'красн%' " +
+                    " Group by Color_f "
+                   , connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // считать строки результат в List<VegetablesAndFruits>
+                    List<string> result = new List<string>();
+                    while (reader.Read())
+                    {
+                        result.Add(reader.GetInt32(0).ToString());
+                        result.Add(reader.GetValue(1).ToString());
+                    }
+                    return result;
+                }
+            }
+        }
+        // 3. получить запись по id
         public List<VegetablesAndFruits> SelectById(int id)
         {
             using (SqlConnection connection = connectionProvider.OpenDbConnection())
@@ -130,7 +246,7 @@ namespace Vegetables_Fruits_d_z_shambala
             }
         }
 
-        // 3. добавить запись
+        // 4. добавить запись
         // Id_f - Name_f - Type_f - Color_f - Сalories_f 
 
         public void Insert(VegetablesAndFruits VegetablesAndFruits)
@@ -158,7 +274,7 @@ namespace Vegetables_Fruits_d_z_shambala
             }
         }
 
-        // 4. удалить запись по id
+        // 5. удалить запись по id
         public void Delete(int id)
         {
             using (SqlConnection connection = connectionProvider.OpenDbConnection())
@@ -176,7 +292,7 @@ namespace Vegetables_Fruits_d_z_shambala
             }
         }
 
-        // 5. обновить запись по id
+        // 6. обновить запись по id
         public void Update(VegetablesAndFruits VegetablesAndFruits)
         {
             using (SqlConnection connection = connectionProvider.OpenDbConnection())

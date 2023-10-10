@@ -17,7 +17,7 @@ namespace Vegetables_Fruits_d_z_shambala
         public string Color { get; set; } = string.Empty;
         public int? Calories { get; set; } = null; // вот так int занул делаем
 
-        //public VegetablesAndFruits(long id,string name, string type, string color, decimal calories ) {
+        //public VegetablesAndFruits(long id,string name, string type, string color, int calories ) {
         //    Id = id;
         //    Name = name;
         //    Type = type;

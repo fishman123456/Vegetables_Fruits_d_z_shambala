@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vegetables_Fruits_d_z_shambala"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="850">
+        Title="MainWindow" Height="500" Width="850"
+                            MaxHeight="500" MaxWidth="850"
+                            MinHeight="500" MinWidth="850" >
     <Grid>
         <StackPanel Orientation="Vertical">
             <!-- меню навигации -->
@@ -32,6 +34,13 @@
                     <MenuItem Name="Qvery13" Header="Показать овощи и фрукты у которых цвет желтый или красный" Click="Qvery13_Click"/>
                 </MenuItem>
             </Menu>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="ID" Grid.Column="1"/>
+                <Label Content="Name" Grid.Column="3"/>
+                <Label Content="Type" Grid.Column="5"/>
+                <Label Content="Color" Grid.Column="7"/>
+                <Label Content="Calories" Grid.Column="9"  Width="70"/>
+            </StackPanel>
 
             <!-- действия, выполняемые в прогармме-->
             <StackPanel Orientation="Horizontal">
@@ -47,11 +56,13 @@
             <StackPanel>
                 <!-- Список объектов -->
                 <ListBox x:Name="VegFruListBox" SelectionChanged="usersList_SelectionChanged"
-              Height="250" 
+              Height="220" 
               ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible"
                  >
                 </ListBox>
             </StackPanel>
+
+            <!-- текстбоксы для изменения записи -->
             <StackPanel Orientation="Horizontal" >
                 <Grid >
                     <Grid.ColumnDefinitions>
@@ -86,12 +97,41 @@
                 <TextBox x:Name="Uptype_f" Margin="10" Width="100" ></TextBox>
                 <TextBox x:Name="Upcolor_f" Margin="10" Width="100" ></TextBox>
                 <TextBox x:Name="Upcalories_f" Margin="10" Width="100" ></TextBox>
-                <Button Name="Update" Width="100" Margin="10" HorizontalAlignment="Right" Content="Update" Click="Update_Click" ></Button>
+                <Button Name="Update" Width="100" Margin="10" HorizontalAlignment="Right"
+                        Content="Update" Click="Update_Click" ></Button>
             </StackPanel>
         </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+            </Grid>
+        </StackPanel>
+       <!-- тексбоксы снизу -->
+        <DockPanel  HorizontalAlignment="Center" Margin="0,360,0,0" Width="330">
+            <Label Content="MinCalories" Width="120" Height="50"/>
+            <Label Content="MaxCalories" Width="120" Height="50" />
+            <Label Content="InputColor" Width="120" Height="50"/>
+        </DockPanel>
+        <DockPanel  HorizontalAlignment="Center" Margin="0,380,10,0">
+            <TextBox x:Name="InputMinCal" Margin="10" Width="100"
+                     Height="20"  ></TextBox>
+            <TextBox x:Name="InputMaxCal" Margin="10" Width="100"
+                     Height="20" ></TextBox>
+            <TextBox x:Name="InputColor" Margin="10" Width="100" 
+          Height="20" TextChanged="InputColor_TextChanged" ></TextBox>
 
-
-
-
+        </DockPanel>
     </Grid>
 </Window>

@@ -33,5 +33,20 @@ order by Сalories_f desc
  OFFSET 0 ROWS
  FETCH NEXT 1 ROWS ONLY;
 
+-- запрос показать кол-во овощей
 
+ select  count(*)
+from Veg_Fru_t
+where Type_f like 'овощь'
 
+-- запрос показать кол-во овощей и фруктов заданного цвета 
+
+select  count(*), Color_f
+from Veg_Fru_t
+where Color_f = 'черный'
+Group by Color_f
+
+-- запрос показать кол-во овощей и фруктов каждого цвета 
+select  count(*), Color_f
+from Veg_Fru_t
+Group by Color_f

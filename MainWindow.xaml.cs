@@ -211,27 +211,43 @@ namespace Vegetables_Fruits_d_z_shambala
             vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
             dbClient.SelectAVGCalories();
         }
-
-        private void MenuItemQvery_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+//-------------------------------------------------------------------------//
+        //2.1  показать кол-во овощей 10-10-2023
         private void Qvery6_Click(object sender, RoutedEventArgs e)
         {
+            List<string> vegasfruit = dbClient.SelectCountVeg();
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectCountVeg();
         }
+        //2.1  показать кол-во фруктов 10-10-2023
         private void Qvery7_Click(object sender, RoutedEventArgs e)
         {
+            List<string> vegasfruit = dbClient.SelectCountFru();
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectCountFru();
         }
+        // 2.3 Показать количество овощей и фруктов заданного цвета;
         private void Qvery8_Click(object sender, RoutedEventArgs e)
         {
+            string strings = "красн%";   //------- заплатка пока 10-10-2023_14-26
+            List<string> vegasfruit = dbClient.SelectCountColor(strings);
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectCountFru();
+
         }
+
+        // 2.4 Показать количество овощей и фруктов каждого цвета;
         private void Qvery9_Click(object sender, RoutedEventArgs e)
         {
+           
+            List<string> vegasfruit = dbClient.SelectCountAllColor();
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectCountAllColor();
+
         }
         private void Qvery10_Click(object sender, RoutedEventArgs e)
         {
@@ -244,6 +260,21 @@ namespace Vegetables_Fruits_d_z_shambala
         }
         private void Qvery13_Click(object sender, RoutedEventArgs e)
         {
+            List<string> vegasfruit = dbClient.SelectCountRedYel();
+            VegFruListBox.Items.Clear();
+            vegasfruit.ForEach(v => { VegFruListBox.Items.Add(v); });
+            dbClient.SelectCountRedYel();
+        }
+        private void MenuItemQvery_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void InputColor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
