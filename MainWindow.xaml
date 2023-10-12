@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="850"
                             MaxHeight="500" MaxWidth="850"
-                            MinHeight="500" MinWidth="850" >
+                            MinHeight="500" MinWidth="850" WindowStartupLocation="CenterScreen" >
     <Grid>
         <StackPanel Orientation="Vertical">
             <!-- меню навигации -->
@@ -35,10 +35,10 @@
                 </MenuItem>
             </Menu>
             <StackPanel Orientation="Horizontal">
-                <Label Content="ID" Grid.Column="1"/>
-                <Label Content="Name" Grid.Column="3"/>
-                <Label Content="Type" Grid.Column="5"/>
-                <Label Content="Color" Grid.Column="7"/>
+                <Label Content="" Grid.Column="1" Margin="0,0,220,0"/> 
+                <Label Content="Name" Grid.Column="3" Margin="0,0,90,0"/>
+                <Label Content="Type" Grid.Column="5" Margin="0,0,80,0"/>
+                <Label Content="Color" Grid.Column="7" Margin="0,0,70,0"/>
                 <Label Content="Calories" Grid.Column="9"  Width="70"/>
             </StackPanel>
 
