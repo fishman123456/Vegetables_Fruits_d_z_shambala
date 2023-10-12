@@ -50,3 +50,8 @@ Group by Color_f
 select  count(*), Color_f
 from Veg_Fru_t
 Group by Color_f
+
+--  Показать овощи и фрукты с калорийностью менее указанной;
+select *
+from Veg_Fru_t v
+where v.Сalories_f <10
